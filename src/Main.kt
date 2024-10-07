@@ -21,7 +21,16 @@ fun main() {
     //Ejercicio 7
     var letra=poneMayusculaPrimeraLetra("Hola, lo primero de todo como estan los maquinas?")
     println(letra)
-    }
+    //Ejercicio 8
+    println(sumaDigitos(100000001))
+    //Ejercicio 9
+
+    //Ejercicio 10
+    fiboTermino(25)
+    //Ejercicio 11
+    primoRelativo(503,163)
+}
+
 
 //Ejercicio 1. Crea una función que obtenga el número máximo de una lista de
 //números
@@ -96,4 +105,62 @@ fun poneMayusculaPrimeraLetra(a: String) :String{
         }
     }
     return sol
+}
+// Ejercicio 8. Crea una función que sume los dígitos de un número. Ejemplo:
+//sumaDigitos(245) = 2 + 4 + 5 = 11
+fun sumaDigitos(a: Int) {
+    val b= a.toString()
+    var res=0
+    for (i in b.indices){
+        res+= b[i].toString().toInt()
+    }
+    println("El resultado es $res")
+}
+//Ejercicio 9. Crea una función que calcule el máximo común divisor de dos números
+//naturales
+fun MaxComunDivisor(a: Int, b: Int){
+    var D=a
+    var d=b
+    var r=-5
+    var q=0
+    while(r>0){
+        r=D%d
+        D=d
+        r=d
+        //Luego sigues con euclides
+    }
+
+}
+//Ejercicio 10. Crea una función que calcule el término n-ésimo de la sucesión de Finbonacci.
+//En matemática, la sucesión de Fibonacci se trata de una serie infinita de números naturales que empieza con un 0 y un 1 y
+//continúa añadiendo números que son la suma de los dos anteriores: 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610, 987,
+//1597…
+fun fiboTermino(n: Int){
+
+    var a=0
+    var b=1
+    var c=0
+    if (n<=0) println(a)
+    else if (n==1) println(b)
+    else {
+        for (i in 1..n) {
+            c = a + b
+            println(c)
+            a = b
+            b = c
+        }
+    }
+}
+//Ejercicio 11. Crea una función que determine si dos números son primos relativos.
+//Se dice que dos números son relativamente primos si su factor común más grande ( FCG ) es 1. Ejemplo 1: Los factores de 20 son 1, 2, 4, 5, 10
+//y 20. Los factores de 33 son 1, 3, 11, y 33.
+fun primoRelativo(a: Int, b: Int) {
+    var primos=true
+    for (i in 2..a) {
+        if (a % i == 0 && b % i == 0) {
+            println("$i ----- $a%$b")
+            primos= false
+            break
+        }//REVISAR!
+    }
 }
