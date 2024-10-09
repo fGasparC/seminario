@@ -24,11 +24,23 @@ fun main() {
     //Ejercicio 8
     println(sumaDigitos(100000001))
     //Ejercicio 9
-
+    println("El maximo comun divisor es ${MaxComunDivisor(173,999)}")
     //Ejercicio 10
     fiboTermino(25)
     //Ejercicio 11
-    primoRelativo(503,163)
+    //primoRelativo(503,163)
+    //Ejercicio 12
+    println(esCapicua(4424))
+    //Ejercicio 14
+    imprimeMosaico(20)
+    //Ejercicio 15
+    val iA1= intArrayOf(5,4,2,3,4,5,2,12,3,2)
+    val iA2= intArrayOf(5,4,2,3,4,5,2,11,3,2)
+    val booArr=booleanizadorDeArraysDeEnteros(iA1,iA2)
+    for(i in 0.. booArr.size-1){
+        println(booArr[i])
+    }
+
 }
 
 
@@ -118,18 +130,16 @@ fun sumaDigitos(a: Int) {
 }
 //Ejercicio 9. Crea una función que calcule el máximo común divisor de dos números
 //naturales
-fun MaxComunDivisor(a: Int, b: Int){
-    var D=a
-    var d=b
-    var r=-5
-    var q=0
-    while(r>0){
-        r=D%d
-        D=d
-        r=d
-        //Luego sigues con euclides
+fun MaxComunDivisor(a: Int, b: Int): Int{
+    var mcd=1
+    var i=1
+    while (i<=a && i<=b){
+        if (a%i==0 && b%i==0){
+            mcd=i
+        }
+        i++
     }
-
+    return mcd
 }
 //Ejercicio 10. Crea una función que calcule el término n-ésimo de la sucesión de Finbonacci.
 //En matemática, la sucesión de Fibonacci se trata de una serie infinita de números naturales que empieza con un 0 y un 1 y
@@ -164,3 +174,41 @@ fun primoRelativo(a: Int, b: Int) {
         }//REVISAR!
     }
 }
+//Ejercicio 12. Crea una función que determine si un número dado es capicúa
+fun esCapicua(a: Int): Boolean{
+    var b=""
+    b=b+a
+    return determinaPalindromos(b)
+}
+//Ejercicio 13. Crea una función que dada una cadena de texto con formato Emmet
+//devuelva su correspondiente etiqueta HTML, teniendo en cuenta sólo los atributos
+//de clase e id.
+
+
+//Ejercicio 14. Crea una función que dado un número n imprima el siguiente ‘mosaico’
+//(para n = 6):
+fun imprimeMosaico(a: Int){
+    for (i in 1..a){
+       for (j in 1..i){
+           print(i)
+       }
+        println()
+    }
+}
+//Ejercicio 15. Crear una función que reciba dos arrays de enteros y devuelva un array de booleanos
+//que determine si los elementos, uno a uno, de ambos arrays son iguales
+fun booleanizadorDeArraysDeEnteros(a: IntArray, b:IntArray): BooleanArray{
+    var c=a.size
+    if(b.size>a.size) c=b.size
+    var BooleanArray= BooleanArray(c)
+    for (i in 0..a.size-1){
+        if(a[i]==b[i]){
+            BooleanArray[i]=true
+        }else{
+            BooleanArray[i]=false
+        }
+    }
+    return BooleanArray
+}
+//Ejercicio 16: Crea una función que calcule el producto de todos los elementos en
+//una lista de números.
