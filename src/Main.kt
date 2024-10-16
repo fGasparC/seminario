@@ -40,7 +40,25 @@ fun main() {
     for(i in 0.. booArr.size-1){
         println(booArr[i])
     }
-
+    //Ejercicio 16
+    val iA3= intArrayOf(5,5,5)
+    var aoblongo=multiplicadorElementosArray(iA3)
+    println(aoblongo)
+    //Ejercicio 17
+    var aoblonga=devuelvePares(iA2)
+    for (i in 0..aoblonga.size-1){
+        println(aoblonga[i])
+    }
+    //Ejercicio 18
+    println(determinadorPrimo(5))
+    //Ejercicio 19
+    println(eleminaVocales("Esternocleidomastoideo"))
+    //Ejercicio 20
+    println(calculaFactorial(5))
+    //Ejercicio 21
+    println(revierteCadena("Hola"))
+    //Ejercicio 22
+    println(determinaNumerosPerfectos(495))
 }
 
 
@@ -212,3 +230,123 @@ fun booleanizadorDeArraysDeEnteros(a: IntArray, b:IntArray): BooleanArray{
 }
 //Ejercicio 16: Crea una función que calcule el producto de todos los elementos en
 //una lista de números.
+fun multiplicadorElementosArray(a: IntArray): Int{
+    var res=1
+    for(i in 0..a.size-1){
+        res=a[i]*res
+    }
+    return res
+}
+//Ejercicio 17: Crea una función que dada una lista de números, devuelva una nueva
+//lista con solo los números pares.
+fun devuelvePares(a:IntArray):IntArray{
+    var cP=0
+    var cont=0
+    for(i in 0..a.size-1){
+        if(a[i]%2==0){
+            cP++
+        }
+    }
+    var aux=IntArray(cP)
+    for(i in 0..a.size-1){
+        if(a[i]%2==0){
+            aux[cont]=a[i]
+            cont++
+        }
+    }
+    return aux
+}
+//Ejercicio 18: Crea una función que determine si un número es primo.
+fun determinadorPrimo(a:Int):Boolean{
+    var res=true
+    for (i in 2..a-1)
+    {
+        if(a%i==0){
+            res=false
+        }
+    }
+    return res
+}
+//Ejercicio 19: Crea una función que, dada una cadena de texto, elimine todas las
+//vocales de la cadena.
+fun eleminaVocales(a: String):String{
+    var aux=""
+    for (i in 0..a.length-1){
+        if((a[i]!='a'&&a[i]!='e'&&a[i]!='i'&&a[i]!='o'&&a[i]!='u'&&a[i]!='A'&&a[i]!='E'&&a[i]!='I'&&a[i]!='O'&&a[i]!='U')){
+            aux += a[i]
+        }
+    }
+    return aux
+}
+//Ejercicio 20: Crea una función que calcule el factorial de un número.
+fun calculaFactorial(a:Int):Int{
+    var res = 1
+    for (i in 2..a)
+    {
+        res*=i
+    }
+    return res
+}
+//Ejercicio 21: Crea una función que invierta una cadena de texto. Por ejemplo, "hola" debería convertirse en
+//"aloh
+fun revierteCadena(a:String):String{
+    var aux=""
+    for (i in 0..a.length-1){
+        aux+=a[a.length-1-i]
+    }
+    return aux
+}
+//Ejercicio 22: Crea una función que, dado un número, devuelva True si es un número perfecto (la suma de
+//sus divisores propios positivos es igual al número), o False en caso contrario.
+fun determinaNumerosPerfectos(a:Int):Boolean{
+    var suma=0
+    for (i in 1..a-1){
+        if(a%i==0)suma+=i
+        println(suma)
+    }
+    if (suma==a) return true
+    else return false
+}
+/*
+Ejercicio 23: Crea una función que, dado un número entero, devuelva True si es un número Armstrong (un
+número que es igual a la suma de sus propios dígitos elevados a una potencia). Por ejemplo, 153 es un
+número Armstrong porque 1^3 + 5^3 + 3^3 = 153
+
+Ejercicio 24: Crea una función que encuentre el número más grande en una matriz bidimensional
+(una lista de listas).
+Ejercicio 25: Crea una función que encuentre el número más pequeño en una matriz
+bidimensional (una lista de listas).
+Ejercicio 26: Crea una función que, dada una lista de palabras, devuelva la palabra más larga.
+Ejercicio 27: Crea una función que, dada una lista de palabras, devuelva la palabra más corta.
+Ejercicio 28: Crea una función que determine si una cadena de texto contiene solo
+caracteres alfabéticos (letras) y espacios en blanco.
+Ejercicio 29: Crea una función que determine si una cadena de texto es un
+anagrama de otra cadena. Dos palabras son anagramas si tienen las mismas letras,
+pero en un orden diferente.
+Ejercicio 30: Crea una función que, dado un número entero, devuelva True si es un
+número triangular (puede representarse como un triángulo equilátero de puntos), o
+False en caso contrario.
+Ejercicio 31: Duplicar Elementos en una Lista
+Escribe una función que tome una lista de números y utilice la función map para
+duplicar cada número en la lista. La función debe devolver una nueva lista con
+todos los números duplicados.
+Por ejemplo, si la entrada es [1, 2, 3, 4], la función debe devolver [2, 4, 6, 8]
+
+Ejercicio 32: Crear un Diccionario a partir de Listas
+Escribe una función que tome dos listas, una lista de claves y otra lista de valores, y
+cree un diccionario utilizando mapOf para combinar las listas en un diccionario
+clave-valor. La función debe devolver el diccionario resultante.
+
+Ejercicio 33: Crea un programa se encargue de transformar un número decimal a
+binario sin utilizar funciones propias del lenguaje que lo hagan directamente.
+Ejercicio 34: Crea una función que sea capaz de encriptar y desencriptar texto
+utilizando el algoritmo de encriptación de Karaca (debes buscar información sobre
+él).
+
+Ejercicio 35: Crea una función que ordene y retorne una matriz de números.
+ - La función recibirá un listado (por ejemplo [2, 4, 6, 8, 9]) y un parámetro adicional
+ - "Asc" o "Desc" para indicar si debe ordenarse de menor a mayor o de mayor a
+menor.
+ - No se pueden utilizar funciones propias del lenguaje que lo resuelvan
+automáticamente
+ */
