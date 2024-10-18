@@ -67,11 +67,17 @@ fun main() {
     //Ejercicio 25
     println(buscaMinimoEnMatrices(matrix))
     //Ejercicio 26
-    val listaPalabras= arrayOf("pelota","monitor","madrugar","Desoxirribonucleótido", "solecito")
+    val listaPalabras= arrayOf("pelota","monitor","madrugar","Desoxirribonucleótido", "solecito","sol")
     println(devuelvePalabraMasLarga(listaPalabras))
-    //Ejercicio 27
+    println("Ejercicio 27")//Ejercicio 27
     println(devuelvePalabraMasCorta(listaPalabras))
-    //Ejercicio 28
+    println("Ejercicio 28")//Ejercicio 28
+    println(esSoloLetrasSoloEspacios("Uno dos tres cuatro cinco"))
+    println("Ejercicio 29")//Ejercicio 29
+    println(esAnagrama("mora","amor"))
+    println("Ejercicio 30")//Ejercicio 30
+    println(esNumeroTriangular(21))
+    println(revierteCadena("Vanessa es una hija puta2"))
 
 }
 
@@ -389,9 +395,14 @@ fun devuelvePalabraMasLarga(a: Array<String>):String{
 fun devuelvePalabraMasCorta(a: Array<String>):String{
     var res=""
     for(i in 0..a.size-1){
-        if(a[i].length<res.length){
+        if(i==0){
             res=a[i]
+        }else{
+            if(a[i].length<res.length){
+                res=a[i]
+            }
         }
+
     }
     return res
 }
@@ -399,25 +410,52 @@ fun devuelvePalabraMasCorta(a: Array<String>):String{
 //Ejercicio 28: Crea una función que determine si una cadena de texto contiene solo
 //caracteres alfabéticos (letras) y espacios en blanco.
 fun esSoloLetrasSoloEspacios(a: String):Boolean{
-    var res=false
+    var res=true
     for(i in 0..a.length-1){
-        //if(a[i]!=' '){}
+        if (a[i] != ' ' && a[i] !in ('A'..'Z') && a[i] !in ('a'..'z')) res= false
     }
     return res
 }
-/*
-Ejercicio 29: Crea una función que determine si una cadena de texto es un
-anagrama de otra cadena. Dos palabras son anagramas si tienen las mismas letras,
-pero en un orden diferente.
-Ejercicio 30: Crea una función que, dado un número entero, devuelva True si es un
-número triangular (puede representarse como un triángulo equilátero de puntos), o
-False en caso contrario.
-Ejercicio 31: Duplicar Elementos en una Lista
-Escribe una función que tome una lista de números y utilice la función map para
-duplicar cada número en la lista. La función debe devolver una nueva lista con
-todos los números duplicados.
-Por ejemplo, si la entrada es [1, 2, 3, 4], la función debe devolver [2, 4, 6, 8]
 
+//Ejercicio 29: Crea una función que determine si una cadena de texto es un
+//anagrama de otra cadena. Dos palabras son anagramas si tienen las mismas letras,
+//pero en un orden diferente.
+fun esAnagrama(a: String, b: String):Boolean{
+    if (a.length!=b.length) return false
+    else{
+        var contA=IntArray('z'-'a')
+        var contB=IntArray(contA.size)
+        for(i in 0..a.length-1){
+            contA[a[i]-'a']++
+            contB[b[i]-'a']++
+        }
+        if (contA.contentEquals(contB)) return true
+        else return false
+    }
+
+
+}
+//Ejercicio 30: Crea una función que, dado un número entero, devuelva True si es un
+//número triangular (puede representarse como un triángulo equilátero de puntos), o
+//False en caso contrario.
+fun esNumeroTriangular(a: Int):Boolean{
+    var n=1
+    var numT=0
+    while (numT<a){
+        numT=(n*(n+1))/2
+        n++
+    }
+    if(numT==a) return true
+    else return false
+}
+
+//Ejercicio 31: Duplicar Elementos en una Lista
+//Escribe una función que tome una lista de números y utilice la función map para
+//duplicar cada número en la lista. La función debe devolver una nueva lista con
+//todos los números duplicados.
+//Por ejemplo, si la entrada es [1, 2, 3, 4], la función debe devolver [2, 4, 6, 8]
+
+/*
 Ejercicio 32: Crear un Diccionario a partir de Listas
 Escribe una función que tome dos listas, una lista de claves y otra lista de valores, y
 cree un diccionario utilizando mapOf para combinar las listas en un diccionario
@@ -425,6 +463,7 @@ clave-valor. La función debe devolver el diccionario resultante.
 
 Ejercicio 33: Crea un programa se encargue de transformar un número decimal a
 binario sin utilizar funciones propias del lenguaje que lo hagan directamente.
+
 Ejercicio 34: Crea una función que sea capaz de encriptar y desencriptar texto
 utilizando el algoritmo de encriptación de Karaca (debes buscar información sobre
 él).
