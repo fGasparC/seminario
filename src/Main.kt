@@ -59,6 +59,20 @@ fun main() {
     println(revierteCadena("Hola"))
     //Ejercicio 22
     println(determinaNumerosPerfectos(495))
+    //Ejercicio 23
+    println(determinaNumeroAmstrong(8209))
+    //Ejercicio 24
+    val matrix: Array<IntArray> = arrayOf(iA1,iA2)
+    println(buscaMaximoEnMatrices(matrix))
+    //Ejercicio 25
+    println(buscaMinimoEnMatrices(matrix))
+    //Ejercicio 26
+    val listaPalabras= arrayOf("pelota","monitor","madrugar","Desoxirribonucleótido", "solecito")
+    println(devuelvePalabraMasLarga(listaPalabras))
+    //Ejercicio 27
+    println(devuelvePalabraMasCorta(listaPalabras))
+    //Ejercicio 28
+
 }
 
 
@@ -302,24 +316,96 @@ fun determinaNumerosPerfectos(a:Int):Boolean{
     var suma=0
     for (i in 1..a-1){
         if(a%i==0)suma+=i
-        println(suma)
     }
     if (suma==a) return true
     else return false
 }
-/*
-Ejercicio 23: Crea una función que, dado un número entero, devuelva True si es un número Armstrong (un
-número que es igual a la suma de sus propios dígitos elevados a una potencia). Por ejemplo, 153 es un
-número Armstrong porque 1^3 + 5^3 + 3^3 = 153
 
-Ejercicio 24: Crea una función que encuentre el número más grande en una matriz bidimensional
-(una lista de listas).
-Ejercicio 25: Crea una función que encuentre el número más pequeño en una matriz
-bidimensional (una lista de listas).
-Ejercicio 26: Crea una función que, dada una lista de palabras, devuelva la palabra más larga.
-Ejercicio 27: Crea una función que, dada una lista de palabras, devuelva la palabra más corta.
-Ejercicio 28: Crea una función que determine si una cadena de texto contiene solo
-caracteres alfabéticos (letras) y espacios en blanco.
+//Ejercicio 23: Crea una función que, dado un número entero, devuelva True si es un número Armstrong (un
+//número que es igual a la suma de sus propios dígitos elevados a una potencia). Por ejemplo, 153 es un
+//número Armstrong porque 1^3 + 5^3 + 3^3 = 153
+fun determinaNumeroAmstrong(a: Int):Boolean{
+    var numeroStr=""+a
+    var cifrasNumeros=numeroStr.length
+    var res=0
+    for(i in 0..cifrasNumeros-1)
+    {
+        res+=Math.pow(numeroStr.get(i).digitToInt().toDouble(),cifrasNumeros.toDouble()).toInt()
+    }
+    if (res==a) return true
+    else return false
+}
+
+//Ejercicio 24: Crea una función que encuentre el número más grande en una matriz bidimensional
+//(una lista de listas).
+fun buscaMaximoEnMatrices(a:Array<IntArray>):Int{
+    var max=0
+    for (i in 0..a.size-1){
+        for (j in 0..a[0].size-1){
+            if(j==0 && i==0){
+                max = a[i][j]
+            }
+            else{
+                if (a[i][j]>max){
+                   max= a[i][j]
+                }
+            }
+        }
+ }
+    return max
+}
+
+//Ejercicio 25: Crea una función que encuentre el número más pequeño en una matriz
+//bidimensional (una lista de listas).
+fun buscaMinimoEnMatrices(a:Array<IntArray>):Int{
+    var min=0
+    for (i in 0..a.size-1){
+        for (j in 0..a[0].size-1){
+            if(j==0 && i==0){
+                min = a[i][j]
+            }
+            else{
+                if (a[i][j]<min){
+                    min= a[i][j]
+                }
+            }
+        }
+    }
+    return min
+}
+
+//Ejercicio 26: Crea una función que, dada una lista de palabras, devuelva la palabra más larga.
+fun devuelvePalabraMasLarga(a: Array<String>):String{
+    var res=""
+    for(i in 0..a.size-1){
+        if(a[i].length>res.length){
+            res=a[i]
+        }
+    }
+    return res
+}
+
+//Ejercicio 27: Crea una función que, dada una lista de palabras, devuelva la palabra más corta.
+fun devuelvePalabraMasCorta(a: Array<String>):String{
+    var res=""
+    for(i in 0..a.size-1){
+        if(a[i].length<res.length){
+            res=a[i]
+        }
+    }
+    return res
+}
+
+//Ejercicio 28: Crea una función que determine si una cadena de texto contiene solo
+//caracteres alfabéticos (letras) y espacios en blanco.
+fun esSoloLetrasSoloEspacios(a: String):Boolean{
+    var res=false
+    for(i in 0..a.length-1){
+        //if(a[i]!=' '){}
+    }
+    return res
+}
+/*
 Ejercicio 29: Crea una función que determine si una cadena de texto es un
 anagrama de otra cadena. Dos palabras son anagramas si tienen las mismas letras,
 pero en un orden diferente.
