@@ -113,12 +113,21 @@ fun main() {
     println(dNL)
 
     println("Ejercicio 32")//Ejercicio 32)
-    println(decimalABinario(10))
+
 
     println("Ejercicio 33")//Ejercicio 33)
+    println(decimalABinario(10))
 
     println("Ejercicio 34")//Ejercicio 34)
     println(encriptacionKaraca("Hola que tal"))
+
+    println("Ejercicio 35")//Ejercicio 35)
+    val ej35= intArrayOf(5,4,2,34,4,1,9,0,332)
+    var ej35R=ordenaNumeros(ej35,"desc")
+    for(i in 0..ej35R.size-1){
+        print(ej35R[i])
+        print(" ")
+    }
 }
 
 
@@ -558,4 +567,17 @@ fun auxEncriptacionKaraca(a:MutableList<String>):List<String>{
 //menor.
 // - No se pueden utilizar funciones propias del lenguaje que lo resuelvan
 //automáticamente
-// */
+fun ordenaNumeros(a:IntArray,b: String="asc"):IntArray{
+    var aux=0
+    for(i in 0..a.size){
+        for(j in 0..a.size-2){
+            if(a[j]>a[j+1]){
+                aux=a[j]
+                a[j]=a[j+1]
+                a[j+1]=aux
+            }
+        }
+    }
+    if(b.lowercase().equals("asc")) return a
+    else return a.reversed().toIntArray()
+}
