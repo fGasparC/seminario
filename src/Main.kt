@@ -77,8 +77,10 @@ fun main() {
     println(esAnagrama("mora","amor"))
     println("Ejercicio 30")//Ejercicio 30
     println(esNumeroTriangular(21))
-    println(revierteCadena("Vanessa es una hija puta2"))
-
+    println("Ejercicio 31")//Ejercicio 31)
+    val numeros = listOf(1, 2, 3, 4)
+    var dNL=duplicadorNumerosLista(numeros)
+    println(dNL)
 }
 
 
@@ -454,7 +456,9 @@ fun esNumeroTriangular(a: Int):Boolean{
 //duplicar cada número en la lista. La función debe devolver una nueva lista con
 //todos los números duplicados.
 //Por ejemplo, si la entrada es [1, 2, 3, 4], la función debe devolver [2, 4, 6, 8]
-
+fun duplicadorNumerosLista(a: List<Int>):List<Int>{
+    return a.map{it*2}
+}
 /*
 Ejercicio 32: Crear un Diccionario a partir de Listas
 Escribe una función que tome dos listas, una lista de claves y otra lista de valores, y
