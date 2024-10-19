@@ -3,84 +3,122 @@
 fun main() {
 
     val listaNumeros= intArrayOf(34,52,32,44,54,200,22,23,44,94,61,45,424)
-    //Ejercicio 1
+
+    println("Ejercicio 1")//Ejercicio 1
     obtenerMaximo(listaNumeros)
-    //Ejercicio 2
+
+    println("Ejercicio 2")//Ejercicio 2
     obtenerSumatoria(listaNumeros)
-    //Ejercicio 3
+
+    println("Ejercicio 3")//Ejercicio 3
     val kms=obtenerKms(5f)
     println(kms)
-    //Ejercicio 4
+
+    println("Ejercicio 4")//Ejercicio 4
     var esPalindromo=determinaPalindromos("galleta")
     println(esPalindromo)
-    //Ejercicio 5
+
+    println("Ejercicio 5")//Ejercicio 5
     var numLetras=cuentaLetras("El gato se subio al tejado y se cayo", ' ')
     println(numLetras)
-    //Ejercicio 6
+    println("Ejercicio 6")//Ejercicio 6
 
-    //Ejercicio 7
+    println("Ejercicio 7")//Ejercicio 7
     var letra=poneMayusculaPrimeraLetra("Hola, lo primero de todo como estan los maquinas?")
     println(letra)
-    //Ejercicio 8
+
+    println("Ejercicio 8")//Ejercicio 8
     println(sumaDigitos(100000001))
-    //Ejercicio 9
+
+    println("Ejercicio 9")//Ejercicio 9
     println("El maximo comun divisor es ${MaxComunDivisor(173,999)}")
-    //Ejercicio 10
+
+    println("Ejercicio 10")//Ejercicio 10
     fiboTermino(25)
-    //Ejercicio 11
-    //primoRelativo(503,163)
-    //Ejercicio 12
+
+    println("Ejercicio 11")//Ejercicio 11
+    primoRelativo(503,163)
+
+    println("Ejercicio 12")//Ejercicio 12
     println(esCapicua(4424))
-    //Ejercicio 14
+
+    println("Ejercicio 13")//Ejercicio 13
+
+    println("Ejercicio 14")//Ejercicio 14
     imprimeMosaico(20)
-    //Ejercicio 15
+
+    println("Ejercicio 15")//Ejercicio 15
     val iA1= intArrayOf(5,4,2,3,4,5,2,12,3,2)
     val iA2= intArrayOf(5,4,2,3,4,5,2,11,3,2)
     val booArr=booleanizadorDeArraysDeEnteros(iA1,iA2)
     for(i in 0.. booArr.size-1){
-        println(booArr[i])
+        print(booArr[i])
     }
-    //Ejercicio 16
+
+    println("Ejercicio 16")//Ejercicio 16
     val iA3= intArrayOf(5,5,5)
     var aoblongo=multiplicadorElementosArray(iA3)
     println(aoblongo)
-    //Ejercicio 17
+    println("Ejercicio 17")//Ejercicio 17
     var aoblonga=devuelvePares(iA2)
     for (i in 0..aoblonga.size-1){
-        println(aoblonga[i])
+        print(aoblonga[i])
     }
-    //Ejercicio 18
+    println()
+
+    println("Ejercicio 18")//Ejercicio 18
     println(determinadorPrimo(5))
-    //Ejercicio 19
+
+    println("Ejercicio 19")//Ejercicio 19
     println(eleminaVocales("Esternocleidomastoideo"))
-    //Ejercicio 20
+
+    println("Ejercicio 20")//Ejercicio 20
     println(calculaFactorial(5))
-    //Ejercicio 21
+
+    println("Ejercicio 21")//Ejercicio 21
     println(revierteCadena("Hola"))
-    //Ejercicio 22
+
+    println("Ejercicio 22")//Ejercicio 22
     println(determinaNumerosPerfectos(495))
-    //Ejercicio 23
+
+    println("Ejercicio 23")//Ejercicio 23
     println(determinaNumeroAmstrong(8209))
-    //Ejercicio 24
+
+    println("Ejercicio 24")//Ejercicio 24
     val matrix: Array<IntArray> = arrayOf(iA1,iA2)
     println(buscaMaximoEnMatrices(matrix))
-    //Ejercicio 25
+
+    println("Ejercicio 25")//Ejercicio 25
     println(buscaMinimoEnMatrices(matrix))
-    //Ejercicio 26
+
+    println("Ejercicio 26")//Ejercicio 26
     val listaPalabras= arrayOf("pelota","monitor","madrugar","Desoxirribonucleótido", "solecito","sol")
     println(devuelvePalabraMasLarga(listaPalabras))
+
     println("Ejercicio 27")//Ejercicio 27
     println(devuelvePalabraMasCorta(listaPalabras))
+
     println("Ejercicio 28")//Ejercicio 28
     println(esSoloLetrasSoloEspacios("Uno dos tres cuatro cinco"))
+
     println("Ejercicio 29")//Ejercicio 29
     println(esAnagrama("mora","amor"))
+
     println("Ejercicio 30")//Ejercicio 30
     println(esNumeroTriangular(21))
+
     println("Ejercicio 31")//Ejercicio 31)
     val numeros = listOf(1, 2, 3, 4)
     var dNL=duplicadorNumerosLista(numeros)
     println(dNL)
+
+    println("Ejercicio 32")//Ejercicio 32)
+    println(decimalABinario(10))
+
+    println("Ejercicio 33")//Ejercicio 33)
+
+    println("Ejercicio 34")//Ejercicio 34)
+    println(encriptacionKaraca("Hola que tal"))
 }
 
 
@@ -459,23 +497,65 @@ fun esNumeroTriangular(a: Int):Boolean{
 fun duplicadorNumerosLista(a: List<Int>):List<Int>{
     return a.map{it*2}
 }
-/*
-Ejercicio 32: Crear un Diccionario a partir de Listas
-Escribe una función que tome dos listas, una lista de claves y otra lista de valores, y
-cree un diccionario utilizando mapOf para combinar las listas en un diccionario
-clave-valor. La función debe devolver el diccionario resultante.
 
-Ejercicio 33: Crea un programa se encargue de transformar un número decimal a
-binario sin utilizar funciones propias del lenguaje que lo hagan directamente.
+//Ejercicio 32: Crear un Diccionario a partir de Listas
+//Escribe una función que tome dos listas, una lista de claves y otra lista de valores, y
+//cree un diccionario utilizando mapOf para combinar las listas en un diccionario
+//clave-valor. La función debe devolver el diccionario resultante.
 
-Ejercicio 34: Crea una función que sea capaz de encriptar y desencriptar texto
-utilizando el algoritmo de encriptación de Karaca (debes buscar información sobre
-él).
-
-Ejercicio 35: Crea una función que ordene y retorne una matriz de números.
- - La función recibirá un listado (por ejemplo [2, 4, 6, 8, 9]) y un parámetro adicional
- - "Asc" o "Desc" para indicar si debe ordenarse de menor a mayor o de mayor a
-menor.
- - No se pueden utilizar funciones propias del lenguaje que lo resuelvan
-automáticamente
- */
+//Ejercicio 33: Crea un programa se encargue de transformar un número decimal a
+//binario sin utilizar funciones propias del lenguaje que lo hagan directamente.
+fun decimalABinario(a:Int):String{
+    var n=a
+    var res=""
+    while (n>0){
+        var aux=n%2
+        res+=aux
+        n=n/2
+    }
+    return res.reversed()
+}
+//Ejercicio 34: Crea una función que sea capaz de encriptar y desencriptar texto
+//utilizando el algoritmo de encriptación de Karaca (debes buscar información sobre
+//él).
+fun encriptacionKaraca(a:String):List<String>{
+    var aux= a.lowercase().split(' ').toMutableList()
+    for(i in 0..aux.size-1){
+        aux[i]=aux[i].reversed()
+    }
+    return auxEncriptacionKaraca(aux)
+}
+fun auxEncriptacionKaraca(a:MutableList<String>):List<String>{
+    for(i in 0..a.size-1){
+        var pal=""
+        for (j in 0..a[i].length-1){
+            if (a[i][j]=='a'){
+                pal+="0"
+            }
+            else if(a[i][j]=='e'){
+                pal+="1"
+            }
+            else if(a[i][j]=='i'|| a[i][j]=='o'){
+                pal+="2"
+            }
+            else if(a[i][j]=='u'){
+                pal+="3"
+            }
+            else{
+                pal+=a[i][j]
+            }
+        }
+        a[i]=pal
+    }
+    for (i in 0..a.size-1){
+        a[i]+="aca"
+    }
+    return a
+}
+//Ejercicio 35: Crea una función que ordene y retorne una matriz de números.
+// - La función recibirá un listado (por ejemplo [2, 4, 6, 8, 9]) y un parámetro adicional
+// - "Asc" o "Desc" para indicar si debe ordenarse de menor a mayor o de mayor a
+//menor.
+// - No se pueden utilizar funciones propias del lenguaje que lo resuelvan
+//automáticamente
+// */
