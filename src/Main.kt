@@ -22,7 +22,7 @@ fun main() {
     var numLetras=cuentaLetras("El gato se subio al tejado y se cayo", ' ')
     println(numLetras)
     println("Ejercicio 6")//Ejercicio 6
-
+    println(cuentaCadenas("hola hola hola adios hola adios hola hola adios","hola"))
     println("Ejercicio 7")//Ejercicio 7
     var letra=poneMayusculaPrimeraLetra("Hola, lo primero de todo como estan los maquinas?")
     println(letra)
@@ -182,8 +182,20 @@ fun cuentaLetras(a:String, b: Char):Int{
 //Ejercicio 6. Crea una función que cuenta cuántas veces aparece una subcadena en
 //un texto.
 fun cuentaCadenas(a: String, b: String):Int{
-    var contador=0
-    // holaholhoa -> ho ->3 !!ESTE NO ESTA HECHO!!
+    var contador = 0
+    var posI=0
+    var posF=b.length
+    while (posF<a.length-1){
+        var pal=""
+        for(i in posI..posF-1)
+        {
+            pal+=a[i].lowercase()
+        }
+        if(pal==b.lowercase()) contador++
+        posI++
+        posF++
+    }
+
     return contador
 }
 //Ejercicio 7. Crea una función que pone en mayúscula la primera letra de cada
